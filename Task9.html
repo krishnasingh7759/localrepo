@@ -1,28 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task9</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Madhubani District Webpage</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  text-align: center;
+}
 
-    </style>
+header {
+  background-color: #6a1b9a;
+  color: white;
+  padding: 20px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.nav-box {
+  width: 200px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.nav-box:hover {
+  transform: scale(1.05);
+}
+
+.nav-box img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.nav-box h2 {
+  margin-top: 12px;
+  color: #333333;
+}
+
+  </style>
 </head>
 <body>
-    <div>
-        <div>
-            <h1>Home</h1>
-            <p></p>
-        </div>
-        <div>
-            <h1>About</h1>
-        </div>
-        <div>
+  <header>
+    <h1>Welcome to Madhubani District</h1>
+    <p>Discover the culture, art, and heritage of Bihar, India</p>
+  </header>
 
-        </div>
-        <div>
-            <h1>Contact</h1>
-        </div>
+  <div class="nav-container">
+    <div class="nav-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/India_Bihar_location_map.svg/640px-India_Bihar_location_map.svg.png" alt="Home Icon">
+      <h2>Home</h2>
     </div>
+    <div class="nav-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Madhubani_Art_1.jpg/640px-Madhubani_Art_1.jpg" alt="About Icon">
+      <h2>About</h2>
+    </div>
+    <div class="nav-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Madhubani_painting_from_Bihar.jpg/640px-Madhubani_painting_from_Bihar.jpg" alt="Gallery Icon">
+      <h2>Gallery</h2>
+    </div>
+    <div class="nav-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Madhubani_station_board.jpg/640px-Madhubani_station_board.jpg" alt="Contact Icon">
+      <h2>Contact</h2>
+    </div>
+  </div>
 </body>
 </html>
