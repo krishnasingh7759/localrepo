@@ -1,12 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>favascript</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 20px;
+    }
+    h2 {
+      color: #990000;
+    }
+    input, button {
+      margin: 5px 0;
+      padding: 5px;
+    }
+    .output {
+      margin: 10px 0;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    
+
+  <h2>1. Print Name and Address</h2>
+  <button onclick="printName()">Show</button>
+  <div class="output" id="out1"></div>
+
+  <h2>2. Check Value and Type</h2>
+  <input type="text" id="val1" placeholder="Value 1">
+  <input type="text" id="val2" placeholder="Value 2">
+  <button onclick="checkType()">Check</button>
+  <div class="output" id="out2"></div>
+
+  <h2>3. Add Two Strings and Capitalize</h2>
+  <input type="text" id="str1" placeholder="String 1">
+  <input type="text" id="str2" placeholder="String 2">
+  <button onclick="addStrings()">Add</button>
+  <div class="output" id="out3"></div>
+
+  <h2>4. String Length in Bytes</h2>
+  <input type="text" id="byteStr" placeholder="Enter a string">
+  <button onclick="getBytes()">Get Bytes</button>
+  <div class="output" id="out4"></div>
+
+  <h2>5. Round Number to Digits</h2>
+  <input type="number" id="num" placeholder="Number">
+  <input type="number" id="digits" placeholder="Digits">
+  <button onclick="roundNum()">Round</button>
+  <div class="output" id="out5"></div>
+
+  <script>
+    function printName() {
+      document.getElementById("out1").innerText = "Name: Krishna Kumar\nAddress: Madhubani,Bihar,Pin code-847401";
+    }
+
+    function checkType() {
+      let v1 = document.getElementById("val1").value;
+      let v2 = document.getElementById("val2").value;
+
+      let a = isNaN(v1) ? v1 : Number(v1);
+      let b = isNaN(v2) ? v2 : Number(v2);
+
+      let result = (a === b) && (typeof a === typeof b);
+      document.getElementById("out2").innerText = result ? "Same value and type" : "Not same";
+    }
+
+    function addStrings() {
+      let s1 = document.getElementById("str1").value;
+      let s2 = document.getElementById("str2").value;
+      document.getElementById("out3").innerText = (s1 + s2).toUpperCase();
+    }
+
+    function getBytes() {
+      let str = document.getElementById("byteStr").value;
+      let bytes = new TextEncoder().encode(str).length;
+      document.getElementById("out4").innerText = "Bytes: " + bytes;
+    }
+
+    function roundNum() {
+      let num = parseFloat(document.getElementById("num").value);
+      let digits = parseInt(document.getElementById("digits").value);
+      let result = num.toFixed(digits);
+      document.getElementById("out5").innerText = "Rounded: " + result;
+    }
+  </script>
+
 </body>
-<script src="Task1.js"></script>
 </html>
