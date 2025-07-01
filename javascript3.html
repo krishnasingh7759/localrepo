@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Interactive Scripts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f4f4f4;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px 0;
+    }
+    #displayInfo p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h2>1. Basic Information Form</h2>
+    <form id="infoForm">
+      Name: <input type="text" id="name"><br>
+      Email: <input type="email" id="email"><br>
+      Age: <input type="number" id="age"><br>
+      <button type="button" onclick="showInfo()">Submit</button>
+    </form>
+    <h3>Form Data Output:</h3>
+    <div id="displayInfo"></div>
+  </div>
+
+  <div class="section">
+    <h2>2. Change Image</h2>
+    <img id="myImage" src="https://via.placeholder.com/150" width="150">
+    <br>
+    <button onclick="changeImage()">Change Image</button>
+  </div>
+
+  <div class="section">
+    <h2>3. Font Size Changer</h2>
+    <p id="myText">This text size will change.</p>
+    <button onclick="changeFontSize(1)">Increase</button>
+    <button onclick="changeFontSize(-1)">Decrease</button>
+  </div>
+
+  <div class="section">
+    <h2>4. Current Date & Time</h2>
+    <button onclick="showDateTime()">Show Date & Time</button>
+    <p id="dateTimeOutput"></p>
+  </div>
+
+  <script>
+  
+    function showInfo() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const age = document.getElementById("age").value;
+
+      const output = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Age:</strong> ${age}</p>
+      `;
+
+      document.getElementById("displayInfo").innerHTML = output;
+    }
+
+    function changeImage() {
+      const img = document.getElementById("myImage");
+      img.src = "https://picsum.photos/150?random=" + Math.floor(Math.random() * 100);
+    }
+
+    let fontSize = 16;
+    function changeFontSize(change) {
+      fontSize += change;
+      if (fontSize < 10) fontSize = 10;
+      if (fontSize > 40) fontSize = 40;
+      document.getElementById("myText").style.fontSize = fontSize + "px";
+    }
+
+    function showDateTime() {
+      const now = new Date();
+      document.getElementById("dateTimeOutput").innerText = now.toString();
+    }
+  </script>
+
+</body>
+</html>
