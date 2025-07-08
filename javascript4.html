@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Exception Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #333;
+        }
+        .result {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>1. Handle Exception: Undeclared Variable</h2>
+    <div class="result" id="errorUndeclared"></div>
+
+    <h2>2. Throw Divide by Zero Error</h2>
+    <div class="result" id="errorDivideByZero"></div>
+
+    <h2>3. Throw Out of Bound Error</h2>
+    <div class="result" id="errorOutOfBounds"></div>
+
+    <h2>4. Exception Handling with finally Block</h2>
+    <div class="result" id="errorFinally"></div>
+
+    <script>
+       
+        try {
+            console.log(notDeclaredVar);  
+        } catch (error) {
+            document.getElementById("errorUndeclared").textContent = "Caught Error: " + error.message;
+        }
+
+        try {
+            let a = 10;
+            let b = 0;
+            if (b === 0) {
+                throw new Error("Divide by Zero Error");
+            }
+            let c = a / b;
+        } catch (error) {
+            document.getElementById("errorDivideByZero").textContent = "Caught Error: " + error.message;
+        }
+
+        try {
+            let arr = [1, 2, 3];
+            let index = 5;
+            if (index >= arr.length) {
+                throw new Error("Out of Bound Error");
+            }
+            console.log(arr[index]);
+        } catch (error) {
+            document.getElementById("errorOutOfBounds").textContent = "Caught Error: " + error.message;
+        }
+
+        try {
+            let num = 5;
+            let result = num.toUpperCase();
+        } catch (error) {
+            document.getElementById("errorFinally").textContent = "Caught Error: " + error.message;
+        } finally {
+            document.getElementById("errorFinally").textContent += " | Finally block executed.";
+        }
+    </script>
+
+</body>
+</html>
